@@ -1,6 +1,7 @@
 var dependencies = Object.keys(require('./package.json').dependencies);
 var webpack = require('webpack');
 var config = require('./config');
+var path = require('path');
 
 module.exports = {
     cache: true,
@@ -27,7 +28,7 @@ module.exports = {
     },
     resolve: {
         extensions: ['', '.js', '.jsx'],
-        root: __dirname + '/client/src/js'
+        root: path.join(__dirname, '/client/src/js')
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
