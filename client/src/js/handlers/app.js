@@ -1,8 +1,8 @@
 'use strict';
 
 var React = require('react');
-var { RouteHandler } = require('react-router');
 var StoreWatchComponent = require('components/storeWatch');
+var { RouteHandler } = require('react-router');
 var { flux } = require('flux');
 var { Link } = require('react-router');
 

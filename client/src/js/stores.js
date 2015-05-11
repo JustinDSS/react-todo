@@ -13,40 +13,21 @@ var TaskStore = Tuxxor.createStore({
     // and the value is the event name. Value can also be
     // an array of event names.
     actions: {
-        getAll: 'TASKS_ALL',
-        remove: 'TASKS_REMOVE',
-        add: 'TASKS_ADD',
-        update: 'TASKS_UPDATE'
     },
 
-    getAll: function (tasks) {
-        this.tasks = tasks;
+    set: function (tasks) {
         this.emit('change');
     },
 
     update: function(updatedTask) {
-        // We are using map to iterate over our array of tasks.
-        // When we hit the task appropriate task, return the
-        // updated properties instead of the normal properties
-        this.tasks = this.tasks.map(function(task) {
-            return (task.id === updatedTask.id) ? updatedTask : task;
-        });
-
         this.emit('change');
     },
 
     add: function(task) {
-        this.tasks = this.tasks.concat([task]) ;
         this.emit('change');
     },
 
     remove: function(id) {
-        // Here we are filtering over our tasks and rejecting
-        // the task that matches the task's id we removed
-        this.tasks = this.tasks.filter(function(task) {
-            return task.id !== id;
-        });
-
         this.emit('change');
     },
 

@@ -13,21 +13,6 @@ var TaskAdd = React.createClass({
     },
 
     onSubmit: function() {
-        var task = {
-            text: this.refs.input.getDOMNode().value,
-            complete: false
-        };
-
-        // Make sure the user has actually supplied a TODO
-        // before we try to persist it to the server
-        if (task.text) {
-            // Our action returns a promise. When that promise
-            // is fulfilled we can transition back to the tasks list
-            flux.actions.add(task)
-                .then(() => {
-                    this.context.router.transitionTo('tasks');
-                });
-        }
     },
 
     render: function() {
