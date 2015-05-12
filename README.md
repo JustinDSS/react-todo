@@ -17,7 +17,7 @@ some minimal setup.
    installation.
 
 2. If you are running windows, you will need to install some version of
-   visual studio as well as python 2.7.
+   visual studio ([visual studio comunity](https://www.visualstudio.com/en-us/products/visual-studio-express-vs.aspx) is free) as well as [python 2.7](https://www.python.org/download/releases/2.7/).
 
 3. Install the gulp CLI as a global node package. `npm install -g gulp`
 
