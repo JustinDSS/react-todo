@@ -33,6 +33,12 @@ some minimal setup.
 
 6. Start the development server with `gulp`.
 
+##Editor Choices
+
+- [Sublime Text](http://www.sublimetext.com/): One of the most popular cross platform text editors
+- [Notepad ++](https://notepad-plus-plus.org/): Another popular windows editor
+- [Webstorm](https://www.jetbrains.com/webstorm/): An IDE usefull for JavaScript
+
 ##Library Documentation
 
 ###[React](https://facebook.github.io/react/docs/getting-started.html):
