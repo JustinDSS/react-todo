@@ -21,18 +21,34 @@ var TaskActions = {
 
     // Fetch all tasks from the server
     all: function() {
+        var self = this;
+        ajax.get('api/tasks').then(function(tasks) {
+            self.dispatch('TASK_SET', tasks);
+        });
     },
 
     // Update a single task
     update: function(id, params) {
+        var self = this;
+        ajax.put('api/tasks/'+id, params)
+        .then(function(task) {
+            self.dispatch('TASK_UPDATE', task);
+        });
     },
 
     // Add a new task
     add: function(params) {
+        console.log("action!")
+        return ajax.post('api/tasks', params)
     },
 
     // Delete a task by id
-    remove: function(id) {
+    remove: function(task) {
+        var self = this;
+        ajax.del('api/tasks/'+task.id)
+        .then(function() {
+            self.dispatch('TASK_REMOVE', task);
+        });
     }
 
 };

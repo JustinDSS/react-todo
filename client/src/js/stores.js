@@ -13,13 +13,24 @@ var TaskStore = Tuxxor.createStore({
     // and the value is the event name. Value can also be
     // an array of event names.
     actions: {
+        set: 'TASK_SET',
+        add: 'TASK_ADD',
+        remove: 'TASK_REMOVE',
+        update: 'TASK_UPDATE'
     },
 
     set: function (tasks) {
+        this.tasks = tasks
         this.emit('change');
     },
 
     update: function(updatedTask) {
+        this.tasks = this.tasks.map(function(currentTask) {
+            if(currentTask.id === updatedTask.id) {
+                return updatedTask
+            }
+            return currentTask
+        })
         this.emit('change');
     },
 
@@ -27,7 +38,10 @@ var TaskStore = Tuxxor.createStore({
         this.emit('change');
     },
 
-    remove: function(id) {
+    remove: function(task) {
+        this.tasks = this.tasks.filter(function(currentTask) {
+            return currentTask !== task
+        });
         this.emit('change');
     },
 

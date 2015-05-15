@@ -13,6 +13,15 @@ var TaskAdd = React.createClass({
     },
 
     onSubmit: function() {
+        var promise = flux.actions.add({
+            complete: false,
+            text: this.refs.input.getDOMNode().value
+        });
+
+        var self = this;
+        promise.then(function() {
+            self.context.router.transitionTo('tasks');
+        })
     },
 
     render: function() {
