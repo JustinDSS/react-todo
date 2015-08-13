@@ -1,6 +1,7 @@
 'use strict';
 
 var ajax = require('ajax');
+var { ActionTypes } = require('constants');
 
 
 // The key values of this object will be available in
@@ -25,14 +26,17 @@ var TaskActions = {
 
     // Update a single task
     update: function(id, params) {
+        this.dispatch(ActionTypes.UPDATE_TODO, {task: params});
     },
 
     // Add a new task
     add: function(params) {
+        this.dispatch(ActionTypes.ADD_TODO, {text: params});
     },
 
     // Delete a task by id
     remove: function(id) {
+        this.dispatch(ActionTypes.REMOVE_TODO, {removeId: id});
     }
 
 };
