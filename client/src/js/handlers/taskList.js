@@ -17,9 +17,10 @@ var TaskList = React.createClass({
     render: function() {
         var tasks = this.props.tasks;
         if(this.props.filterComplete){
-            // Do this better
-            tasks = _.reject(_.isNil(), tasks);
-            tasks = _.reject(_.propEq('complete', true), tasks);
+            var areCompleteAndValid = _.compose(
+                _.reject(_.propEq('complete', true)),
+                _.reject(_.isNil()));
+            tasks = areCompleteAndValid(tasks);
         }
         return <div className="list-container">
             <ul>
